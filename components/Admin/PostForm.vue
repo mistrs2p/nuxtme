@@ -17,14 +17,22 @@
 
 <script>
 export default {
-  // name: 'AdminPostForm',
+  name: 'PostForm',
+  props: {
+    post: {
+      type: Object,
+      reqired: false
+    }
+  },
   data() {
     return {
-      editedPost: {
-        author: '',
-        title: '',
-        thumbnailLink: '',
-        content: ''
+      editedPost: this.post 
+        ? { ...this.post } 
+        : {
+          author: '',
+          title: '',
+          thumbnailLink: '',
+          content: ''
       }
     }
   },
