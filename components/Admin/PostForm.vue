@@ -17,6 +17,26 @@
 
 <script>
 export default {
+  // name: 'AdminPostForm',
+  data() {
+    return {
+      editedPost: {
+        author: '',
+        title: '',
+        thumbnailLink: '',
+        content: ''
+      }
+    }
+  },
+  methods: {
+    onSave() {
+      // Save the Post
+      console.log(this.editedPost)
+    },
+    onCancel() {
+      this.$router.push('/admin')
+    }
+  }
 
 }
 </script>
