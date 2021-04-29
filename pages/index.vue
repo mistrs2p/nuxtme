@@ -4,27 +4,7 @@
       <h1>Get the latest tech news!</h1>
     </section>
     <section class="featured-posts">
-      
-      <nuxt-link :to="'/posts/' + 1" class="post-preview">
-        <article>
-          <div class="post-thumbnail" style="background-image: url('https://res.cloudinary.com/people-matters/image/upload/q_auto,f_auto/v1578710070/1578710068.jpg')"></div>
-          <div class="post-content">
-            <h1>Post Title 1</h1>
-            <p>Preview Text 1</p>
-          </div>
-        </article>
-      </nuxt-link>
-
-      <nuxt-link :to="'/posts/' + 2" class="post-preview">
-        <article>
-          <div class="post-thumbnail" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-9tOTX9jj4OXEQ2J3UXjdr6D5gKDElMBnCw&usqp=CAU')"></div>
-          <div class="post-content">
-            <h1>Post Title 2</h1>
-            <p>Preview Text 2</p>
-          </div>
-        </article>
-      </nuxt-link>
-
+      <PostsPostPreview />      
     </section>
   </div>
 </template>
@@ -73,39 +53,5 @@ export default {}
     justify-content: center;
   }
 
-  .post-preview {
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 2px #ccc;
-    background-color: white;
-    width: 90%;
-  }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
-
-  @media (min-width: 850px) {
-    .post-preview {
-      width: 400px;
-      margin: 10px;
-    }
-  }
-
-  .post-thumbnail {
-    width: 100%;
-    height: 200px;
-    background-position: center;
-    background-size: cover;
-  }
-
-  .post-content {
-    padding: 10px;
-    text-align: center;
-  }
-
-  a:hover .post-content,
-  a:active .post-content {
-    background-color: #ccc;
-  }
+  
 </style>
