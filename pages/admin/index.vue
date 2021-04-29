@@ -1,7 +1,7 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-      <button>Create Post</button>
+      <button @click="createNew">Create Post</button>
     </section>
     <section class="existing-posts">
       <h1>Existing post</h1>
@@ -12,7 +12,12 @@
 
 <script>
 export default {
-
+  name: 'admin',
+  methods: {
+    createNew() {
+      this.$router.push('/admin/new-post')
+    }
+  }
 }
 </script>
 

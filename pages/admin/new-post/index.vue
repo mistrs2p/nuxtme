@@ -21,7 +21,7 @@
 
 <script>
 export default {
-  name: 'NewPost',
+  name: 'new-post',
   data() {
     return {
       editedPost: {
@@ -35,6 +35,7 @@ export default {
   methods: {
     onSave() {
       // Save the Post
+      console.log(thi.editedPost)
     },
     onCancel() {
       this.$router.push('/admin')
