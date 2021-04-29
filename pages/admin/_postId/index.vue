@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style scoped>
-  .update-form {
+ .update-form {
     width: 90%;
     margin: 20px auto;
   }
