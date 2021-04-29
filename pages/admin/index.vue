@@ -1,7 +1,7 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-      <button @click="createNew">Create Post</button>
+      <UIAppButton @click="createNew">Create Post</UIAppButton>
     </section>
     <section class="existing-posts">
       <h1>Existing post</h1>
