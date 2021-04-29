@@ -35,7 +35,7 @@ export default {
   methods: {
     onSave() {
       // Save the Post
-      console.log(thi.editedPost)
+      console.log(this.editedPost)
     },
     onCancel() {
       this.$router.push('/admin')
