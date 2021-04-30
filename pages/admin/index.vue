@@ -17,6 +17,13 @@ export default {
     createNew() {
       this.$router.push('/admin/new-post')
     }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+
+      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+    })
   }
 }
 </script>
