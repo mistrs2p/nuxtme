@@ -16,12 +16,12 @@
 export default {
   name: 'PostPreview',
   props: {
-    isAdmin: {
-      type: Boolean,
-      required: true
-    },
     id: {
       type: String,
+      required: true
+    },
+    isAdmin: {
+      type: Boolean,
       required: true
     },
     title: {
