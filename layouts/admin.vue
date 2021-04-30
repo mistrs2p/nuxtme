@@ -7,9 +7,6 @@
 <script>
 export default {
   data() {
-    return {
-      displaySidenav: false
-    }
   }
 }
 </script>
