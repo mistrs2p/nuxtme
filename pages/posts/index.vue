@@ -13,7 +13,7 @@ export default {
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
   },
-  asyncData(context) {
+  fetch(context) {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve({
@@ -48,14 +48,17 @@ export default {
       // reject(new Error)
     })
     .then(data => {
-      return data
+      // return data
+      context.store.commit('setPosts', data.loadedPosts)
     })
     .catch(e => {
       context.error(e)
     })
   },
-  created() {
-    this.$store.dispatch('setPosts', this.loadedPosts)
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   }
 }
 </script>
