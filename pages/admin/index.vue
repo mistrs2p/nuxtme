@@ -5,7 +5,7 @@
     </section>
     <section class="existing-posts">
       <h1>Existing post</h1>
-      <PostsPostList isAdmin />
+      <PostsPostList isAdmin :posts="loadedPosts" />
     </section>
   </div>
 </template>
@@ -24,6 +24,11 @@ export default {
 
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
+  },
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
+    }
   },
   layout: 'admin'
 }
