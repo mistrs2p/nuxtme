@@ -1,7 +1,7 @@
 <template>
   <div class="admin-new-post-page">
     <section class="new-post-form">
-      <AdminPostForm />
+      <AdminPostForm  @submit="onSubmitted" />
     </section>
   </div>
 </template>
@@ -9,7 +9,10 @@
 <script>
 export default {
   name: 'new-post',
-  layout: 'admin'
+  layout: 'admin',
+  methods: {
+    onSubmitted(postData)
+  }
 }
 </script>
 
