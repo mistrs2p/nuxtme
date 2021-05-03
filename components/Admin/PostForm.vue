@@ -6,6 +6,9 @@
     <UIAppControlInput
       control-type="textarea"
       v-model="editedPost.content">Content</UIAppControlInput>
+    <UIAppControlInput
+      control-type="textarea"
+      v-model="editedPost.previewText">previewText</UIAppControlInput>
     <UIAppButton type="submit">Save</UIAppButton>
     <UIAppButton
       type="button"
@@ -32,14 +35,15 @@ export default {
           author: '',
           title: '',
           thumbnailLink: '',
-          content: ''
+          content: '',
+          previewText: ''
       }
     }
   },
   methods: {
     onSave() {
       // Save the Post
-      console.log(this.editedPost)
+      // console.log(this.editedPost)
       this.$emit('submit', this.editedPost)
     },
     onCancel() {
