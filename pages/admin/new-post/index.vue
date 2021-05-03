@@ -7,11 +7,16 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'new-post',
   layout: 'admin',
   methods: {
-    onSubmitted(postData)
+    onSubmitted(postData) {
+      axios.post('https://nuxt-blog-fcdb2-default-rtdb.firebaseio.com/posts.json', postData)
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
   }
 }
 </script>
