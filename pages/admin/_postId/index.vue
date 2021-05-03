@@ -1,22 +1,31 @@
 <template>
   <div class="admin-post-page">
     <div class="update-form">
-      <AdminPostForm :post="loadedPost" />
+      <AdminPostForm :post="loadedPost" @submit="onSubmitted" />
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   layout: 'admin',
-  data() {
-    return {
-      loadedPost: {
-        author: 'Mahdi',
-        title: 'Poste Man',
-        content: 'Mikham Parvaz Konam',
-        thumbnailLink: 'https://www.dti.dk/_/media/73504&w=1460&h=808&r=cover&_filename=73504_Web_tech-mining.jpg'
-      }
+  asyncData(context) {
+    return axios.get('https://nuxt-blog-fcdb2-default-rtdb.firebaseio.com/posts/' + context.route.params.postId + '.json')
+      .then(res => {
+        return {
+          loadedPost: res.data
+        }
+      })
+      .catch(e => context.error(e))  
+  },
+  methods: {
+    onSubmitted(editedPost) {
+      return axios.put('https://nuxt-blog-fcdb2-default-rtdb.firebaseio.com/posts/' + this.$route.params.postId + '.json', editedPost)
+        .then(res => {
+          this.$router.push('/admin')
+        })
+        .catch(err => console.log(err))
     }
   }
 }

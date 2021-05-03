@@ -13,8 +13,14 @@ export default {
   layout: 'admin',
   methods: {
     onSubmitted(postData) {
-      axios.post('https://nuxt-blog-fcdb2-default-rtdb.firebaseio.com/posts.json', postData)
-        .then(res => console.log(res))
+      axios
+        .post('https://nuxt-blog-fcdb2-default-rtdb.firebaseio.com/posts.json', {
+          ...postData, 
+          updatedDate: new Date() 
+        })
+        .then(res => {
+          this.$router.push('/admin')
+        })
         .catch(err => console.log(err))
     }
   }

@@ -4,7 +4,7 @@
       <h1 class="post-title">{{ loadedPost.title }} ID: {{ $route.params.id }}</h1>
       <div class="post-details">
         <div class="post-detail">Last updated on {{ loadedPost.updatedDate }}</div>        
-        <div class="post-detail">{{ loadedPost.author}}</div>        
+        <div class="post-detail">Written By: {{ loadedPost.author}}</div>        
       </div>
       <p class="post-content">{{ loadedPost.content }}</p>
     </section>
@@ -15,21 +15,16 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
-  asyncData(context, callback) {
-    setTimeout(() => {
-      callback(null, {
-        loadedPost: {
-          id: "1",
-          title: "ّFirst Post (ID: " + context.route.params.id + ")",
-          preveiwText: "This is our first Post",
-          author: "Mahdi Mistrain2P",
-          updatedDate: new Date(),
-          content: "This is the dummy text which is definitely Fuck U",
-          thumbnail:""
+  asyncData(context) {
+    return axios.get('https://nuxt-blog-fcdb2-default-rtdb.firebaseio.com/posts/' + context.params.id + '.json')
+      .then(res => {
+        return {
+          loadedPost: res.data
         }
       })
-    }, 1000)
+      .catch(e => context.error(e))  
   }
 }
 </script>
