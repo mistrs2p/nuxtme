@@ -13,15 +13,11 @@ export default {
   layout: 'admin',
   methods: {
     onSubmitted(postData) {
-      axios
-        .post('https://nuxt-blog-fcdb2-default-rtdb.firebaseio.com/posts.json', {
-          ...postData, 
-          updatedDate: new Date() 
-        })
-        .then(res => {
+      this.$store.dispatch('addPost', postData)
+        // I can use .then 'cause in store I Return Axios
+        .then(() => {
           this.$router.push('/admin')
-        })
-        .catch(err => console.log(err))
+        }) 
     }
   }
 }
